@@ -19,7 +19,7 @@ class ValorAliquota extends BuilderAbstract
 
     public function setValor($valor)
     {
-        if (!v::numeric()->validate($valor)) {
+        if (!v::numericVal()->validate($valor)) {
             throw new ValidationError(
                 'Valor deve ser um número.'
             );
@@ -34,7 +34,7 @@ class ValorAliquota extends BuilderAbstract
 
     public function setAliquota($aliquota)
     {
-        if (!v::numeric()->validate($aliquota)) {
+        if (!v::numericVal()->validate($aliquota)) {
             throw new ValidationError(
                 'Aliquota deve ser um número.'
             );

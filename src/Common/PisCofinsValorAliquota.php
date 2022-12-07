@@ -21,7 +21,7 @@ class PisCofinsValorAliquota extends BuilderAbstract
 
     public function setValor($valor)
     {
-        if (!v::numeric()->validate($valor)) {
+        if (!v::numericVal()->validate($valor)) {
             throw new ValidationError(
                 'Valor deve ser um número.'
             );
@@ -36,7 +36,7 @@ class PisCofinsValorAliquota extends BuilderAbstract
 
     public function setAliquota($aliquota)
     {
-        if (!v::numeric()->validate($aliquota)) {
+        if (!v::numericVal()->validate($aliquota)) {
             throw new ValidationError(
                 'Aliquota deve ser um número.'
             );
@@ -51,7 +51,7 @@ class PisCofinsValorAliquota extends BuilderAbstract
 
     public function setCst($cst)
     {
-        if (!v::numeric()->validate($cst)) {
+        if (!v::numericVal()->validate($cst)) {
             throw new ValidationError(
                 'Aliquota deve ser um número.'
             );
@@ -63,5 +63,5 @@ class PisCofinsValorAliquota extends BuilderAbstract
     {
         return $this->cst;
     }
-    
+
 }

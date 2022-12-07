@@ -24,7 +24,7 @@
   },
   "require": {
     "php": ">=7.4",
-    "respect/validation": "^1.1",
+    "respect/validation": "^2.2",
     "guzzlehttp/guzzle": "^7.3",
     "maciejczyzewski/bottomline": "^0.2.0",
     "laminas/laminas-hydrator": "^4.3"
