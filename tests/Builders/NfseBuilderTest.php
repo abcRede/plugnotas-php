@@ -1,4 +1,5 @@
 <?php
+
 namespace TecnoSpeed\Plugnotas\Tests\Builders;
 
 use PHPUnit\Framework\TestCase;
@@ -27,7 +28,7 @@ class NfseBuilderTest extends TestCase
         $this->expectExceptionMessage(
             'Deve ser informado um array ou um objeto do tipo: TecnoSpeed\Plugnotas\Nfse\CidadePrestacao'
         );
-        $nfse = (new NfseBuilder)
+        $nfse = (new NfseBuilder())
             ->withCidadePrestacao('teste')
             ->build();
     }
@@ -38,7 +39,7 @@ class NfseBuilderTest extends TestCase
      */
     public function testWithOneObject()
     {
-        $nfse = (new NfseBuilder)
+        $nfse = (new NfseBuilder())
             ->withCidadePrestacao(CidadePrestacao::fromArray([
                 'codigo' => '123'
             ]))
@@ -58,7 +59,7 @@ class NfseBuilderTest extends TestCase
         $rps->setDataEmissao($dateCompare);
         $rps->setCompetencia($dateCompare);
 
-        $nfse = (new NfseBuilder)
+        $nfse = (new NfseBuilder())
             ->withRps($rps)
             ->build();
 
@@ -82,7 +83,7 @@ class NfseBuilderTest extends TestCase
         $rps->setDataEmissao($dateCompare);
         $rps->setCompetencia($dateCompare);
 
-        $nfse = (new NfseBuilder)
+        $nfse = (new NfseBuilder())
             ->withPrestador($rps)
             ->build();
     }
@@ -103,7 +104,6 @@ class NfseBuilderTest extends TestCase
         array_push($services, [
             'codigo' => 'codigo',
             'discriminacao' => 'discriminação',
-            'codigoTributacao' => null,
             'cnae' => 'cnae',
             'iss' => [
                 'aliquota' => 1.01
@@ -116,7 +116,6 @@ class NfseBuilderTest extends TestCase
         array_push($services, [
             'codigo' => 'codigo2',
             'discriminacao' => 'discriminação2',
-            'codigoTributacao' => null,
             'cnae' => 'cnae2',
             'iss' => [
                 'aliquota' => 1.01
@@ -126,7 +125,7 @@ class NfseBuilderTest extends TestCase
             ]
         ]);
 
-        $nfse = (new NfseBuilder)
+        $nfse = (new NfseBuilder())
             ->withCidadePrestacao([
                 'codigo' => '123'
             ])
@@ -163,22 +162,9 @@ class NfseBuilderTest extends TestCase
                 'cnae' => 'cnae',
                 'iss' => [
                     'aliquota' => 1.01,
-                    "exigibilidade" => null,
-                    "processoSuspensao" => null,
-                    "retido" => null,
-                    "tipoTributacao" => null,
-                    "valor" => null,
-                    "valorRetido" => null,
                 ],
                 'valor' => [
                     'servico' => 10,
-                    "baseCalculo" => null,
-                    "deducoes" => null,
-                    "descontoCondicionado" => null,
-                    "descontoIncondicionado" => null,
-                    "liquido" =>null,
-                    'unitario' => null,
-                    'valorAproximadoTributos' => null
                 ]
             ],
             [
@@ -187,23 +173,9 @@ class NfseBuilderTest extends TestCase
                 'cnae' => 'cnae2',
                 'iss' => [
                     'aliquota' => 1.01,
-                    "exigibilidade" => null,
-                    "processoSuspensao" => null,
-                    "retido" => null,
-                    "tipoTributacao" => null,
-                    "valor" => null,
-                    "valorRetido" => null,
                 ],
                 'valor' => [
                     'servico' => 10,
-                    "baseCalculo" => null,
-                    "deducoes" => null,
-                    "descontoCondicionado" => null,
-                    "descontoIncondicionado" => null,
-                    "liquido" =>null,
-                    'unitario' => null,
-                    'valorAproximadoTributos' => null
-
                 ]
             ]
         ], $nfse->getServico());
