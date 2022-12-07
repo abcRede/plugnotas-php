@@ -3,7 +3,6 @@ version: '2'
 services:
   plugnotas_php:
     tty: true
-    user: ${UID-1000}:${GID-1000}
     build:
       context: ./docker/php
       dockerfile: Dockerfile
