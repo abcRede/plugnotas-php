@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  plugnotas_php:
+    tty: true
+    user: ${UID-1000}:${GID-1000}
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: plugnotas_php
+    working_dir: "/app"
+    volumes:
+      - .:/app
+      - ./docker/php/php.ini:/opt/bitnami/php/etc/conf.d/custom.ini
+      - ./docker/php/z-php-fpm.conf:/opt/bitnami/php/etc/php-fpm.d/z-php-fpm.conf
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    expose:
+      - 9003 # xdebug
