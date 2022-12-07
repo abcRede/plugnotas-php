@@ -67,12 +67,12 @@ class ValorTest extends TestCase
         $valor->setLiquido('0.05');
         $valor->setServico('0.06');
 
-        $this->assertInternalType('double', $valor->getBaseCalculo());
-        $this->assertInternalType('double', $valor->getDeducoes());
-        $this->assertInternalType('double', $valor->getDescontoCondicionado());
-        $this->assertInternalType('double', $valor->getDescontoIncondicionado());
-        $this->assertInternalType('double', $valor->getLiquido());
-        $this->assertInternalType('double', $valor->getServico());
+        $this->assertIsFloat($valor->getBaseCalculo());
+        $this->assertIsFloat($valor->getDeducoes());
+        $this->assertIsFloat($valor->getDescontoCondicionado());
+        $this->assertIsFloat($valor->getDescontoIncondicionado());
+        $this->assertIsFloat($valor->getLiquido());
+        $this->assertIsFloat($valor->getServico());
     }
 
     public function testWithValidData()

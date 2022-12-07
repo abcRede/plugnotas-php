@@ -63,12 +63,12 @@ class IssTest extends TestCase
         $iss->setRetido('');
         $iss->setValor('0.01');
         $iss->setValorRetido('0.01');
-        $this->assertInternalType('double', $iss->getAliquota());
-        $this->assertInternalType('double', $iss->getAliquota());
-        $this->assertInternalType('bool', $iss->getRetido());
+        $this->assertIsFloat($iss->getAliquota());
+        $this->assertIsFloat($iss->getAliquota());
+        $this->assertIsBool($iss->getRetido());
         $this->assertFalse($iss->getRetido());
-        $this->assertInternalType('double', $iss->getValor());
-        $this->assertInternalType('double', $iss->getValorRetido());
+        $this->assertIsFloat($iss->getValor());
+        $this->assertIsFloat($iss->getValorRetido());
     }
 
     public function testValidCreation()
