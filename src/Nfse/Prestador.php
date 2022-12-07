@@ -2,7 +2,7 @@
 
 namespace TecnoSpeed\Plugnotas\Nfse;
 
-use FerFabricio\Hydrator\Hydrate;
+use TecnoSpeed\Plugnotas\Helpers\Hydrator;
 use Respect\Validation\Validator as v;
 use TecnoSpeed\Plugnotas\Abstracts\BuilderAbstract;
 use TecnoSpeed\Plugnotas\Common\Endereco;
@@ -250,9 +250,9 @@ class Prestador extends BuilderAbstract
 
         if (array_key_exists('nfse', $data)) {
             $data['nfse'] = Nfse::fromArray($data['nfse']);
-        }    
+        }
 
-        return Hydrate::toObject(self::class, $data);
+        return Hydrator::hydrate(self::class, $data);
     }
 
     public function validate()

@@ -2,7 +2,7 @@
 
 namespace TecnoSpeed\Plugnotas\Nfse;
 
-use FerFabricio\Hydrator\Hydrate;
+use TecnoSpeed\Plugnotas\Helpers\Hydrator;
 use Respect\Validation\Validator as v;
 use TecnoSpeed\Plugnotas\Configuration;
 use TecnoSpeed\Plugnotas\Communication\CallApi;
@@ -118,7 +118,7 @@ class Tomador extends BuilderAbstract
     {
         return $this->inscricaoSuframa;
     }
-    
+
     public function setIndicadorInscricaoEstadual($indicadorInscricaoEstadual)
     {
         if (!v::in([1,2,9])->validate($indicadorInscricaoEstadual)) {
@@ -216,6 +216,6 @@ class Tomador extends BuilderAbstract
             $data['endereco'] = Endereco::fromArray($data['endereco']);
         }
 
-        return Hydrate::toObject(self::class, $data);
+        return Hydrator::hydrate(self::class, $data);
     }
 }

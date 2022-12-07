@@ -2,7 +2,7 @@
 
 namespace TecnoSpeed\Plugnotas\Nfse;
 
-use FerFabricio\Hydrator\Hydrate;
+use TecnoSpeed\Plugnotas\Helpers\Hydrator;
 use Respect\Validation\Validator as v;
 use TecnoSpeed\Plugnotas\Abstracts\BuilderAbstract;
 use TecnoSpeed\Plugnotas\Configuration;
@@ -172,7 +172,7 @@ class Servico extends BuilderAbstract
     }
 
     public function setObra(Obra $obra)
-    {  
+    {
         $this->obra = $obra;
     }
 
@@ -238,7 +238,7 @@ class Servico extends BuilderAbstract
         );
     }
     $this->responsavelRetencao = $responsavelRetencao;
- 
+
     }
 
     public function getResponsavelRetencao()
@@ -310,6 +310,6 @@ class Servico extends BuilderAbstract
             $data['ibpt'] = Ibpt::fromArray($data['ibpt']);
         }
 
-        return Hydrate::toObject(Servico::class, $data);
+        return Hydrator::hydrate(Servico::class, $data);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace TecnoSpeed\Plugnotas;
 
-use FerFabricio\Hydrator\Hydrate;
+use TecnoSpeed\Plugnotas\Helpers\Hydrator;
 use Respect\Validation\Validator as v;
 use TecnoSpeed\Plugnotas\Abstracts\BuilderAbstract;
 use TecnoSpeed\Plugnotas\Communication\CallApi;
@@ -26,25 +26,25 @@ class Nfse extends BuilderAbstract implements IDfe
 {
     use Communication;
 
-    private $cidadePrestacao;
-    private $configuration;
-    private $enviarEmail;
-    private $idIntegracao;
-    private $impressao;
-    private $prestador;
-    private $rps;
-    private $servico;
-    private $substituicao;
-    private $tomador;
-    private $intermediario;
-    private $naturezaTributacao;
-    private $idNotaSubstituida;
-    private $cargaTributaria;
-    private $descricao;
-    private $camposExtras;
-    private $parcelas;
-    private $informacoesComplementares;
-    private $ativo;
+    protected $cidadePrestacao;
+    protected $configuration;
+    protected $enviarEmail;
+    protected $idIntegracao;
+    protected $impressao;
+    protected $prestador;
+    protected $rps;
+    protected $servico;
+    protected $substituicao;
+    protected $tomador;
+    protected $intermediario;
+    protected $naturezaTributacao;
+    protected $idNotaSubstituida;
+    protected $cargaTributaria;
+    protected $descricao;
+    protected $camposExtras;
+    protected $parcelas;
+    protected $informacoesComplementares;
+    protected $ativo;
 
 
     public function setCidadePrestacao(CidadePrestacao $cidadePrestacao)
@@ -266,14 +266,14 @@ class Nfse extends BuilderAbstract implements IDfe
         return true;
     }
 
-    private function validateArrayServices($servico): bool
+    protected function validateArrayServices($servico): bool
     {
         $validateServices = v::arrayVal()->each(
             v::oneOf(
                 v::allOf(
                     v::keyNested('codigo'),
                     v::keyNested('discriminacao'),
-                    v::keyNested('cnae'),
+                    //v::keyNested('cnae'),
                     v::keyNested('iss.aliquota'),
                     v::keyNested('valor.servico')
                 ),
@@ -340,7 +340,9 @@ class Nfse extends BuilderAbstract implements IDfe
             $data['parcelas'] = Parcelas::fromArray($data['parcelas']);
         }
 
-        return Hydrate::toObject(Nfse::class, $data);
+
+
+        return Hydrator::hydrate(Nfse::class, $data);
     }
 
     public function find($id)
