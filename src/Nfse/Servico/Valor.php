@@ -20,7 +20,7 @@ class Valor extends BuilderAbstract
 
     public function setServico($servico)
     {
-        if (!v::numericVal()->validate($servico)) {
+        if (!v::numeric()->validate($servico)) {
             throw new ValidationError(
                 'O valor do serviço deve ser um valor numérico.'
             );
@@ -35,7 +35,7 @@ class Valor extends BuilderAbstract
 
     public function setBaseCalculo($baseCalculo)
     {
-        if (!v::numericVal()->validate($baseCalculo)) {
+        if (!v::numeric()->validate($baseCalculo)) {
             throw new ValidationError(
                 'Base de cálculo deve ser um valor numérico.'
             );
@@ -50,7 +50,7 @@ class Valor extends BuilderAbstract
 
     public function setDeducoes($deducoes)
     {
-        if (!v::numericVal()->validate($deducoes)) {
+        if (!v::numeric()->validate($deducoes)) {
             throw new ValidationError(
                 'Deduções deve ser um valor numérico.'
             );
@@ -65,7 +65,7 @@ class Valor extends BuilderAbstract
 
     public function setDescontoCondicionado($descontoCondicionado)
     {
-        if (!v::numericVal()->validate($descontoCondicionado)) {
+        if (!v::numeric()->validate($descontoCondicionado)) {
             throw new ValidationError(
                 'Desconto condicional deve ser um valor numérico.'
             );
@@ -80,7 +80,7 @@ class Valor extends BuilderAbstract
 
     public function setDescontoIncondicionado($descontoIncondicionado)
     {
-        if (!v::numericVal()->validate($descontoIncondicionado)) {
+        if (!v::numeric()->validate($descontoIncondicionado)) {
             throw new ValidationError(
                 'Desconto incondicional deve ser um valor numérico.'
             );
@@ -95,7 +95,7 @@ class Valor extends BuilderAbstract
 
     public function setLiquido($liquido)
     {
-        if (!v::numericVal()->validate($liquido)) {
+        if (!v::numeric()->validate($liquido)) {
             throw new ValidationError(
                 'Valor líquido deve ser um valor numérico.'
             );
@@ -110,7 +110,7 @@ class Valor extends BuilderAbstract
 
     public function setUnitario($unitario)
     {
-        if (!v::numericVal()->validate($unitario)) {
+        if (!v::numeric()->validate($unitario)) {
             throw new ValidationError(
                 'Valor unitário do serviço, referente a unidade informada.'
             );
@@ -125,7 +125,7 @@ class Valor extends BuilderAbstract
 
     public function setValorAproximadoTributos($valorAproximadoTributos)
     {
-        if (!v::numericVal()->validate($valorAproximadoTributos)) {
+        if (!v::numeric()->validate($valorAproximadoTributos)) {
             throw new ValidationError(
                 'Valor aproximado dos tributos. Campo utilizado somente para NFS-e de Brasília.'
             );

@@ -273,7 +273,7 @@ class Nfse extends BuilderAbstract implements IDfe
                 v::allOf(
                     v::keyNested('codigo'),
                     v::keyNested('discriminacao'),
-                    //v::keyNested('cnae'),
+                    v::keyNested('cnae'),
                     v::keyNested('iss.aliquota'),
                     v::keyNested('valor.servico')
                 ),
